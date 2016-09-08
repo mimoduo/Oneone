@@ -19,7 +19,7 @@ gulp.task('pug', function() {
     .pipe(pug({
       pretty: true
     }))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 
 });
@@ -35,7 +35,7 @@ gulp.task('sass', function() {
     .pipe(sass({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 
 });
@@ -48,7 +48,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
 
   return gulp.src('src/script.js')
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 
 });
@@ -63,7 +63,7 @@ gulp.task('browser-sync', function() {
   browserSync.init({
     logPrefix: packageJSON.name,
     server: {
-      baseDir: './',
+      baseDir: './dist',
       index: 'demo.html'
     },
     notify: {
