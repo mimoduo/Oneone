@@ -2,12 +2,23 @@
 // Scripts
 // ============= */
 
-var variable;
+var one,
+Oneone = {
 
-function initialize() {
+  settings: {},
 
-  console.log('Hello World');
+  init: function() {
+
+    one = this.settings;
+
+    console.log('Hello World');
+
+  }
+
+};
+
+(function() {
+
+  Oneone.init();
   
-}
-
-initialize();
+})();
