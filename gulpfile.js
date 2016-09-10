@@ -2,6 +2,7 @@
 // Required Plugins
 // ============= */
 
+var site = './dist';
 var gulp = require('gulp'),
     packageJSON = require('./package.json'),
     browserSync = require('browser-sync').create(),
@@ -19,7 +20,7 @@ gulp.task('pug', function() {
     .pipe(pug({
       pretty: true
     }))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
 
 });
@@ -35,7 +36,7 @@ gulp.task('sass', function() {
     .pipe(sass({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
 
 });
@@ -48,7 +49,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
 
   return gulp.src('src/script.js')
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
 
 });
@@ -62,8 +63,9 @@ gulp.task('browser-sync', function() {
 
   browserSync.init({
     logPrefix: packageJSON.name,
+    ui: false,
     server: {
-      baseDir: './dist',
+      baseDir: site,
       index: 'demo.html'
     },
     notify: {
