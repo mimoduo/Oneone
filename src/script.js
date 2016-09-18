@@ -2,14 +2,20 @@
 // Scripts
 // ============= */
 
-var one,
+var oo,
 Oneone = {
 
   settings: {},
 
-  init: function() {
+  init: function(options) {
 
-    one = this.settings;
+    oo = this.settings;
+
+    for (var key in options) {
+      if(options.hasOwnProperty(key)) {
+        oo[key] = options[key];
+      }
+    }
 
     console.log('Hello World');
 
@@ -20,5 +26,5 @@ Oneone = {
 (function() {
 
   Oneone.init();
-  
+
 })();
