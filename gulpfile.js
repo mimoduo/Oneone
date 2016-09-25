@@ -18,6 +18,10 @@ gulp.task('pug', function() {
 
   return gulp.src('src/demo.pug')
     .pipe(pug({
+      locals: {
+        siteTitle: packageJSON.name,
+        siteDescription: packageJSON.description,
+      },
       pretty: true
     }))
     .pipe(gulp.dest(site))
