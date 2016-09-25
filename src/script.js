@@ -8,7 +8,7 @@ Oneone = {
     oo = this.settings;
 
     for (var key in options) {
-      if(options.hasOwnProperty(key)) {
+      if (options.hasOwnProperty(key)) {
         oo[key] = options[key];
       }
     }
