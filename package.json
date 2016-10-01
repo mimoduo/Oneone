@@ -1,11 +1,12 @@
 {
   "name": "Oneone",
   "version": "0.1.0",
+  "homepage": "https://github.com/mimoduo/Oneone",
   "description": "A small kit for building small demos",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mimoduo/Oneone"
+    "url": "https://github.com/mimoduo/Oneone.git"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
