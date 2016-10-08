@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     packageJSON = require('./package.json'),
     browserSync = require('browser-sync').create(),
     pug = require('gulp-pug'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    rename = require('gulp-rename');
 
 
 /* ================
@@ -40,6 +41,9 @@ gulp.task('sass', function() {
     .pipe(sass({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
+    .pipe(rename(function(path) {
+      path.basename = packageJSON.name;
+    }))
     .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
 
@@ -53,6 +57,9 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
 
   return gulp.src('src/script.js')
+    .pipe(rename(function(path) {
+      path.basename = packageJSON.name;
+    }))
     .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
 
