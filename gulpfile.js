@@ -17,13 +17,16 @@ var gulp = require('gulp'),
 
 gulp.task('pug', function() {
 
-  return gulp.src('src/demo.pug')
+  return gulp.src('src/markup.pug')
     .pipe(pug({
       locals: {
         siteTitle: packageJSON.name,
         siteDescription: packageJSON.description,
       },
       pretty: true
+    }))
+    .pipe(rename(function(path) {
+      path.basename = packageJSON.name;
     }))
     .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
@@ -77,7 +80,7 @@ gulp.task('browser-sync', function() {
     ui: false,
     server: {
       baseDir: site,
-      index: 'demo.html'
+      index: packageJSON.name + '.html'
     },
     notify: {
       styles: {

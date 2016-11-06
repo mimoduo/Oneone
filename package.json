@@ -1,8 +1,8 @@
 {
-  "name": "Oneone",
+  "name": "oneone",
   "version": "0.1.0",
   "homepage": "https://github.com/mimoduo/Oneone",
-  "description": "A small kit for building small demos",
+  "description": "A starter kit for building small demos",
   "license": "MIT",
   "repository": {
     "type": "git",
