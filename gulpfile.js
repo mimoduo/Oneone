@@ -17,7 +17,7 @@ var gulp = require('gulp'),
 
 gulp.task('pug', function() {
 
-  return gulp.src('src/markup.pug')
+  return gulp.src('src/index.pug')
     .pipe(pug({
       locals: {
         siteTitle: packageJSON.name,
@@ -25,10 +25,7 @@ gulp.task('pug', function() {
       },
       pretty: true
     }))
-    .pipe(rename(function(path) {
-      path.basename = packageJSON.name;
-    }))
-    .pipe(gulp.dest(site))
+    .pipe(gulp.dest('./'))
     .pipe(browserSync.stream());
 
 });
@@ -78,10 +75,7 @@ gulp.task('browser-sync', function() {
   browserSync.init({
     logPrefix: packageJSON.name,
     ui: false,
-    server: {
-      baseDir: site,
-      index: packageJSON.name + '.html'
-    },
+    server: './',
     notify: {
       styles: {
         top: 'auto',
