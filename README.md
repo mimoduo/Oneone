@@ -4,10 +4,10 @@ Oneone is a little starter kit that helps recreate the codepen experience and tu
 
 ##Features
 
-* Gulp starter kit
-* JS module pattern template
-* Pug compilation
-* Sass compilation
+* **Gulp** starter kit
+* **Pug** compilation
+* **Sass** compilation
+* Javascript module pattern
 * Asset watch paired with Browsersync
 
 ##Installation
