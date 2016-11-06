@@ -86,9 +86,8 @@ gulp.task('browser-sync', function() {
       styles: {
         top: 'auto',
         bottom: '0',
-        padding: '5px 4px 3px',
+        padding: '4px',
         fontSize: '12px',
-        background: '#9e12ef',
         borderBottomLeftRadius: '0'
       }
     }
@@ -103,8 +102,8 @@ gulp.task('browser-sync', function() {
 
 gulp.task('watch', function() {
 
-  gulp.watch('src/styles.scss', ['sass']);
   gulp.watch('src/*.pug', ['pug']);
+  gulp.watch('src/styles.scss', ['sass']);
   gulp.watch('src/script.js', ['js']);
 
 });
@@ -115,8 +114,8 @@ gulp.task('watch', function() {
 // ============= */
 
 gulp.task('default', [
-  'sass',
   'pug',
+  'sass',
   'js',
   'watch',
   'browser-sync'
