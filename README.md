@@ -4,11 +4,11 @@ Oneone is a little starter kit that helps recreate the codepen experience and tu
 
 ##Features
 
-* **Gulp** starter kit
+* **NPM Script** starter kit
 * **Pug** compilation
 * **Sass** compilation
 * Javascript module pattern
-* Asset watch paired with Browsersync
+* Asset watching
 
 ##Installation
 
@@ -17,5 +17,5 @@ Oneone has adopted the use of node package manager in order to download all the 
 ```sh
 cd <folder-of-Mimogear>
 npm install
-gulp
+npm run watch:all
 ```

@@ -9,11 +9,19 @@
     "url": "https://github.com/mimoduo/Oneone.git"
   },
   "devDependencies": {
-    "autoprefixer": "^6.5.1",
-    "browser-sync": "^2.17.5",
-    "gulp": "^3.9.1",
-    "gulp-pug": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2"
+    "node-sass": "^3.13.0",
+    "onchange": "^3.0.2",
+    "parallelshell": "^2.0.0",
+    "pug": "^2.0.0-beta6",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "scripts": {
+    "build:pug": "pug -P src/index.pug -o ./",
+    "watch:pug": "onchange 'src/*.pug' -- npm run build:pug",
+    "build:sass": "node-sass src/styles.scss -o dist/",
+    "watch:sass": "onchange 'src/styles.scss' -- npm run build:sass",
+    "build:js": "cp src/script.js dist/",
+    "watch:js": "onchange 'src/script.js' -- 'npm run build:js'",
+    "watch:all": "parallelshell 'npm run watch:pug' 'npm run watch:sass' 'npm run watch:js'"
   }
 }
