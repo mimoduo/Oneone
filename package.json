@@ -9,6 +9,7 @@
     "url": "https://github.com/mimoduo/Oneone.git"
   },
   "devDependencies": {
+    "copyfiles": "^1.0.0",
     "node-sass": "^3.13.0",
     "onchange": "^3.0.2",
     "parallelshell": "^2.0.0",
@@ -17,11 +18,11 @@
   },
   "scripts": {
     "build:pug": "pug -P src/index.pug -o ./",
-    "watch:pug": "onchange 'src/*.pug' -- npm run build:pug",
+    "watch:pug": "onchange \"src/*.pug\" -- npm run build:pug",
     "build:sass": "node-sass src/styles.scss -o dist/",
-    "watch:sass": "onchange 'src/styles.scss' -- npm run build:sass",
-    "build:js": "cp src/script.js dist/",
-    "watch:js": "onchange 'src/script.js' -- 'npm run build:js'",
-    "watch:all": "parallelshell 'npm run watch:pug' 'npm run watch:sass' 'npm run watch:js'"
+    "watch:sass": "onchange \"src/styles.scss\" -- npm run build:sass",
+    "build:js": "copyfiles -f src/script.js dist/",
+    "watch:js": "onchange \"src/script.js\" -- 'npm run build:js'",
+    "watch:all": "parallelshell \"npm run watch:pug\" \"npm run watch:sass\" \"npm run watch:js\""
   }
 }
