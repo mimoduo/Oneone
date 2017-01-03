@@ -13,9 +13,9 @@ html(
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     )
-    title Demo
+    title= siteTitle
     meta(
-      name="description"
+      name=siteDescription
       content="Module Demo"
     )
     link(
@@ -24,11 +24,15 @@ html(
     )
     link(
       rel="stylesheet"
-      href="dist/styles.css"
+      href="dist/" + siteTitle + ".css"
     )
   body
     block content
     script(
       type="text/javascript"
-      src="dist/scrits.js"
+      src="dist/" + siteTitle + ".js"
+    )
+    script(
+      type="text/javascript"
+      src="src/init.js"
     )

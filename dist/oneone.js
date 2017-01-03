@@ -1,9 +1,11 @@
+'use strict';
+
 var oo,
-Oneone = {
+    Oneone = {
 
   settings: {},
 
-  init: function(options) {
+  init: function init(options) {
 
     oo = this.settings;
 
@@ -14,13 +16,6 @@ Oneone = {
     }
 
     console.log('Hello World');
-
   }
 
 };
-
-(function() {
-
-  Oneone.init();
-
-})();

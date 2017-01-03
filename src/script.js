@@ -18,9 +18,3 @@ Oneone = {
   }
 
 };
-
-(function() {
-
-  Oneone.init();
-
-})();
