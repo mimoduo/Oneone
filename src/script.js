@@ -1,20 +1,20 @@
-var oo,
-Oneone = {
+var Oneone = (function() {
 
-  settings: {},
+  /* Overridable settings */
+  var settings = {};
 
-  init: function(options) {
-
-    oo = this.settings;
-
-    for (var key in options) {
+  var init = function(override) {
+    for (var key in override) {
       if (options.hasOwnProperty(key)) {
-        oo[key] = options[key];
+        settings[key] = override[key];
       }
     }
 
     console.log('Hello World');
-
   }
 
-};
+  return {
+    init: init
+  }
+
+})();
