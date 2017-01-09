@@ -35,15 +35,7 @@ After installing the necessary dev dependencies, edit your package.json file in 
 }
 ```
 
-Next, check out both src/init.js and src/script.js. They contain some custom naming specific to Oneone. These should be renamed to identify your unique plugin name much like the newly edited `name` field in your package.json file.
-
-**init.js**
-
-```js
-YourPluginName.init();
-```
-
-**script.js**
+Next, check out src/script.js and edit the name there as well:
 
 ```js
 var YourPluginName = (function() {
@@ -51,15 +43,21 @@ var YourPluginName = (function() {
 })();
 ```
 
+And lastly, edit the name found in src/init.js:
+
+```js
+YourPluginName.init();
+```
+
 ### Running Gulp
 
-At this point, you should be all setup! Run the `gulp` command to get started with development:
+At this point you have installed all the necessary dependences and changed any names to make the plugin your own. Run the `gulp` command to get started with development:
 
 ```sh
 gulp
 ```
 
-**This will compile all of your code, begin watching your files, and open up a new browser window for your plugin.**
+**Gulp will start compiling all of your code, begin watching your files, and open up a new browser window for your plugin.**
 
 ## Created With Oneone
 
