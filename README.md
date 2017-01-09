@@ -1,21 +1,22 @@
 #Oneone
 
-> A boilerplate for plugin development
+> A boilerplate for javascript plugin development
 
 ##What is Oneone?
 
-Oneone was created based on the desire to recreate an environment like codepen within github. A little bit of dev time later and it turned into a quick boilerplate for plugin development.
+Oneone was initially created to recreate an environment like codepen within github. A little bit of dev time later and it turned into a quick boilerplate for javascript plugin development.
 
 ##Highlights
 
 * Gulp starter kit
 * Pug and SASS compilation
+* Pre-constructed Pug template
 * Javascript module pattern with Babel
-* Complete asset watch
+* Complete asset watch with live reloading
 
 ##Installation
 
-Oneone uses node package manager in order to download all of the necessary build dependencies. If you haven't downloaded node before, head over to [node.js](https://nodejs.org/en/) to download the latest version of node. Once you've installed node and have downloaded Oneone, let's `cd` into the project directory and then download our dependencies using the a terminal:
+Oneone uses _node package manager_ in order to download all of the necessary build dependencies. If you haven't downloaded node before, head over to [node.js](https://nodejs.org/en/) to download the latest version of node. Once you've installed node and have downloaded Oneone, let's `cd` into the project directory and then download our dependencies using a terminal:
 
 ```sh
 cd <folder-of-Oneone>
@@ -25,20 +26,44 @@ npm install
 
 ##Quickstart Guide
 
-After installing the necessary dev dependencies, edit your ./package.json file in the root of the oneone directory. The very least you'll need to change is the `name` field to your unique project name. This tells the gulpfile what data to pass to your template and what to rename the distributed files.
+After installing the necessary dev dependencies, edit your package.json file in the root of the Oneone directory. The very least you'll need to change is the `name` field to your unique plugin name. This tells the gulpfile what data to pass to your template and what to rename the distributed files.
 
-Next, check out both ./src/init.js and ./src/script.js. They contain some custom naming specific to oneone. These should be renamed to identify your unique project name just like what you did in the ./package.json file's `name` field.
+```json
+{
+	"name": "your-plugin-name",
+	"description": "Your plugin description"
+}
+```
 
-At this point, you should be all setup! Run the `gulp` command and you're set:
+Next, check out both src/init.js and src/script.js. They contain some custom naming specific to Oneone. These should be renamed to identify your unique plugin name much like the newly edited `name` field in your package.json file.
+
+**init.js**
+
+```js
+YourPluginName.init();
+```
+
+**script.js**
+
+```js
+var YourPluginName = (function() {
+
+})();
+```
+
+At this point, you should be all setup! Run the `gulp` command to get started with development:
 
 ```sh
 gulp
 ```
 
+**This will compile all of your code, begin watching your files, and open up a new browser window for your plugin.**
+
 ##Created With Oneone
 
 * [Quizquiz](https://github.com/mimoduo/Quizquiz)
+* [keeper](https://github.com/mimoduo/keeper)
 
 ##Thank You, Everyone!
 
-Hopefully you enjoy getting your plugin up and running with Oneone. If you liked how simple Oneone is I bet you'd like my other project, [Mimogear](https://github.com/mimoduo/Mimogear) - a simple static site generator.
+Hopefully you enjoy getting your plugin up and running with Oneone. If you liked how simple Oneone is I bet you'd like my other project, [Mimogear](https://github.com/mimoduo/Mimogear) - _a simple static site generator_.

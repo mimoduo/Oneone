@@ -6,10 +6,12 @@ var site = './dist';
 var gulp = require('gulp'),
     packageJSON = require('./package.json'),
     browserSync = require('browser-sync').create(),
+    rename = require('gulp-rename'),
     pug = require('gulp-pug'),
     sass = require('gulp-sass'),
+    cssnano = require('gulp-cssnano'),
     babel = require('gulp-babel'),
-    rename = require('gulp-rename');
+    uglify = require('gulp-uglify');
 
 
 /* ================
@@ -46,6 +48,11 @@ gulp.task('sass', function() {
       path.basename = packageJSON.name;
     }))
     .pipe(gulp.dest(site))
+    .pipe(cssnano())
+    .pipe(rename(function(path) {
+      path.basename = packageJSON.name + '.min';
+    }))
+    .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
 
 });
@@ -63,6 +70,13 @@ gulp.task('js', function() {
     }))
     .pipe(rename(function(path) {
       path.basename = packageJSON.name;
+    }))
+    .pipe(gulp.dest(site))
+    .pipe(uglify({
+      mangle: false
+    }))
+    .pipe(rename(function(path) {
+      path.basename = packageJSON.name + '.min';
     }))
     .pipe(gulp.dest(site))
     .pipe(browserSync.stream());
@@ -102,7 +116,7 @@ gulp.task('watch', function() {
 
   gulp.watch('src/*.pug', ['pug']);
   gulp.watch('src/styles.scss', ['sass']);
-  gulp.watch('src/script.js', ['js']);
+  gulp.watch('src/*.js', ['js']);
 
 });
 

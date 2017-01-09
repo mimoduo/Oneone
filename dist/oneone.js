@@ -15,6 +15,8 @@ var Oneone = function () {
     console.log('Hello World');
   };
 
+  var privateFunction = function privateFunction() {};
+
   return {
     init: init
   };

@@ -11,10 +11,12 @@ var Oneone = (function() {
     }
 
     console.log('Hello World');
-  }
+  };
+
+  var privateFunction = function() {};
 
   return {
     init: init
-  }
+  };
 
 })();
